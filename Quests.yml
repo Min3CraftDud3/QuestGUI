@@ -1,0 +1,13 @@
+QuestFile:
+  Q0:
+    QuestID: Q0
+    QuestName: Taco
+    QuestDesc: Go to Solestiem
+    QuestReq: None
+    QuestType: Go Somewhere
+  Q4:
+    QuestID: Q4
+    QuestName: Talk to Bewm
+    QuestDesc: Bewm
+    QuestReq: Quester
+    QuestType: Talk to Someone
