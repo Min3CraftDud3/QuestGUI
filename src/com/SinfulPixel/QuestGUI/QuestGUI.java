@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 
 import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -16,8 +18,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.UIManager;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
 
 
 public class QuestGUI {
@@ -37,9 +37,11 @@ public class QuestGUI {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					ymlMgr.popQuest();
 					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 					QuestGUI window = new QuestGUI();
 					window.frmQuestguiV.setVisible(true);
+					CompletedQuests.frmCompletedQuests.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -160,7 +162,9 @@ public class QuestGUI {
 		
 		JButton btnCommitToFile = new JButton("Commit To File");
 		btnCommitToFile.addActionListener(new ActionListener() {
+			@SuppressWarnings("unchecked")
 			public void actionPerformed(ActionEvent e) {
+				ymlMgr.model.addElement(qID.getText());				
 				try{
 					if(ymlMgr.saveToFile()){
 						qDesc.setText(null);

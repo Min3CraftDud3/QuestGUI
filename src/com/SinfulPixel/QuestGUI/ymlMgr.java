@@ -3,7 +3,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 import org.bukkit.configuration.file.FileConfiguration;
@@ -13,6 +15,9 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 
 public class ymlMgr {
+	@SuppressWarnings("rawtypes")
+	public static DefaultListModel model = new DefaultListModel();	
+	
 	public static void createFile() throws IOException{
 		File questFile = new File("Quests.yml");
 		if(!questFile.exists()){
@@ -132,5 +137,42 @@ public class ymlMgr {
 		    return true;
 		}
 	}
-
+	@SuppressWarnings("unchecked")
+	public static void popQuest(){
+		File questFile = new File("Quests.yml");
+		if(questFile.exists()){
+		    FileConfiguration fc = YamlConfiguration.loadConfiguration(questFile);
+		    Set<String> ex = fc.getConfigurationSection("QuestFile").getKeys(false); 
+		    String[] s = ex.toArray(new String[ex.size()]);
+		    for(String t:s){
+		    	model.addElement(t);
+		    }
+		}
+	}
+	public static String[] popQuests(){
+		File questFile = new File("Quests.yml");
+		if(questFile.exists()){
+		    FileConfiguration fc = YamlConfiguration.loadConfiguration(questFile);
+		    Set<String> ex = fc.getConfigurationSection("QuestFile").getKeys(false); 
+		    String[] s = ex.toArray(new String[ex.size()]); 
+		    return s;		    
+		}
+		return null;
+	}
+	public static void popForm(String s){
+		File questFile = new File("Quests.yml");
+		if(questFile.exists()){
+		    FileConfiguration fc = YamlConfiguration.loadConfiguration(questFile);
+		    String name = fc.getString("QuestFile."+s+".QuestName");
+		    String ID = fc.getString("QuestFile."+s+".QuestID");
+		    String Desc = fc.getString("QuestFile."+s+".QuestDesc");
+		    String Req = fc.getString("QuestFile."+s+".QuestReq");
+		    String Type = fc.getString("QuestFile."+s+".QuestType");
+		    QuestGUI.qID.setText(ID);
+		    QuestGUI.qName.setText(name);
+		    QuestGUI.qDesc.setText(Desc);
+		    QuestGUI.qReq.setText(Req);
+		    QuestGUI.questCombo.setSelectedItem(Type);
+		}
+	}
 }

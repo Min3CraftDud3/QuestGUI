@@ -5,9 +5,45 @@ QuestFile:
     QuestDesc: Go to Solestiem
     QuestReq: None
     QuestType: Go Somewhere
+  Q1:
+    QuestID: Q1
+    QuestName: Taco
+    QuestDesc: Go to Solestiem
+    QuestReq: None
+    QuestType: Go Somewhere
+  Q2:
+    QuestID: Q2
+    QuestName: Taco
+    QuestDesc: Go to Solestiem
+    QuestReq: None
+    QuestType: Go Somewhere
+  Q3:
+    QuestID: Q3
+    QuestName: Taco
+    QuestDesc: Go to Solestiem
+    QuestReq: None
+    QuestType: Talk to Someone
   Q4:
     QuestID: Q4
-    QuestName: Talk to Bewm
-    QuestDesc: Bewm
-    QuestReq: Quester
+    QuestName: Taco
+    QuestDesc: Go to Solestiem
+    QuestReq: None
+    QuestType: Talk to Someone
+  Q5:
+    QuestID: Q5
+    QuestName: Taco
+    QuestDesc: Go to Solestiem
+    QuestReq: None
+    QuestType: Talk to Someone
+  Q6:
+    QuestID: Q6
+    QuestName: Taco
+    QuestDesc: Go to Solestiem
+    QuestReq: None
+    QuestType: Talk to Someone
+  Q7:
+    QuestID: Q7
+    QuestName: TacoSalad
+    QuestDesc: Go to Solestiem
+    QuestReq: None
     QuestType: Talk to Someone
